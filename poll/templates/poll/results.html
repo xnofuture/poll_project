@@ -1,0 +1,33 @@
+{% extends "poll/base.html" %}
+
+{% block title %}Results{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Результаты голосования</h3>
+            </div>
+
+            <div class="panel-body">
+                <h3>{{ result.question }}</h3>
+            </div>
+
+            <ul class="list-group">
+                {% for answer in answers %}
+                <li class="list-group-item">{{ answer.name }} &mdash; <strong>{{ answer.vote }}</strong></li>
+                {% endfor %}
+            </ul>
+
+            <div class="panel-footer">
+                Необходимо для победы &mdash; <strong>{{ result.max_amount }}</strong>
+                {% if result.winner == 'Nobody' %}
+                Победитель голосования &mdash; {{ result.winner }}
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

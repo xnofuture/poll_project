@@ -1,0 +1,51 @@
+{% extends "poll/base.html" %}
+
+{% block title %}Vote{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Проголосуй</h3>
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>{{ question.question }}</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <hr />
+
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="radio">
+                                    {% for answer in answers %}
+                                    <label>
+                                        <input type="radio" name="poll" value="{{ answer.name }}" required>
+                                            {{ answer.name }}
+                                    </label>
+
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <button type="submit" class="btn btn-info">
+                                Ответить
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
