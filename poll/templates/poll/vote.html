@@ -1,5 +1,5 @@
 {% extends "poll/base.html" %}
-
+{% load static %}
 {% block title %}Vote{% endblock %}
 
 {% block main %}
@@ -42,6 +42,19 @@
                             </button>
                         </form>
                     </div>
+                    {% for answer in answers %}
+                    <div class="block_about">
+                        <div class="about_image">
+                            <img src="" alt="">
+                        </div>
+                        <div class="about_name">
+                            <h4>{{ answer.name }}</h4>
+                        </div>
+                        <div class="about_biography">
+                            <p>{{ answer.biography }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
 

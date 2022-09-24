@@ -22,7 +22,7 @@
 
             <div class="panel-footer">
                 Необходимо для победы &mdash; <strong>{{ result.max_amount }}</strong>
-                {% if result.winner == 'Nobody' %}
+                {% if result.winner != 'Nobody' %}
                 Победитель голосования &mdash; {{ result.winner }}
                 {% endif %}
             </div>

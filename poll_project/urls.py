@@ -16,11 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from poll import views
+from poll.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('results/<int:poll_id>/', views.results, name='results'),
-    path('vote/<int:poll_id>/', views.vote, name='vote'),
+    #страницы опросов
+    path('', views.home, name='home'),#главная страница
+    path('results/<int:poll_id>/', views.results, name='results'),#страница с результатами опроса
+    path('vote/<int:poll_id>/', views.vote, name='vote'),#страница с голосованием по опросу
+
+    #служебные страницы
+    path('signup/', views.signupuser, name='signupuser'),
+    path('logout/', views.logoutuser, name='logoutuser'),
+    path('login/', views.loginuser, name='loginuser'),
+
+    #api
+    path('api/v1/information', InformationAPIView.as_view()),#получение списка голосований
+    path('api/v1/questions', QuestionAPIView.as_view()),#получение подробной информации о голосовании
+    path('api/v1/winners', WinnerAPIView.as_view()),#получение подробной информации о голосовании
 
 ]
