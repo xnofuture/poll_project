@@ -34,5 +34,6 @@ urlpatterns = [
     path('api/v1/information', InformationAPIView.as_view()),#получение списка голосований
     path('api/v1/questions', QuestionAPIView.as_view()),#получение подробной информации о голосовании
     path('api/v1/winners', WinnerAPIView.as_view()),#получение подробной информации о голосовании
+    path('api/v1/votes', VotesAPIView.as_view()),#получение кол-ва голосов
 
 ]

@@ -18,3 +18,9 @@ class WinnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Poll
         fields = ['pk', 'question', 'winner']
+
+
+class VotesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Poll
+        fields = ['pk', 'question', 'winner']

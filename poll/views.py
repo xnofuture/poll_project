@@ -105,3 +105,6 @@ class WinnerAPIView(generics.ListAPIView):
     serializer_class = WinnerSerializer
 
 
+class VotesAPIView(generics.ListAPIView):
+    queryset = Answer.objects.filter()
+    serializer_class = VotesSerializer
