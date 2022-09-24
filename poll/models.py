@@ -16,7 +16,7 @@ class Poll(models.Model):
 class Answer(models.Model):
     answer = models.ForeignKey('Poll', on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    photo = models.ImageField(upload_to='photos/')
+    #photo = models.ImageField(upload_to='photos/')
     age = models.IntegerField()
     biography = models.TextField(blank=True)
     vote = models.IntegerField(default=0)
